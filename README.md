@@ -1,2 +1,0 @@
-# MartianViewer
-Created with CodeSandbox
