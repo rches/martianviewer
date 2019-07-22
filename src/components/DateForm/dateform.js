@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-import { StyledDateForm, StyledImage } from "./dateformstyle";
 
 class DateForm extends React.Component {
   constructor(props) {
@@ -28,15 +27,19 @@ class DateForm extends React.Component {
       )
       .then(response =>
         this.setState({ images: response.data.photos[1].img_src })
-      );
+      )
+      .catch( error => {
+    console.log(error);
+    this.setState({images:"https://images.emojiterra.com/google/android-nougat/128px/1f914.png"});
+  });
     event.preventDefault();
   }
 
   render() {
     return (
-      <div>
-        <StyledDateForm>
-          <form className="earthdate" onSubmit={this.handleSubmit}>
+      <>
+        <form className="earthdate" onSubmit={this.handleSubmit}>
+          <div className="date">
             <label>
               Date:
               <input
@@ -45,16 +48,20 @@ class DateForm extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <input type="submit" value="Submit" />
-          </form>
-        </StyledDateForm>
-        <StyledImage>
-          <img
-            className={this.state.images ? "imgOut" : "noImg"}
-            src={this.state.images}
-          />
-        </StyledImage>
-      </div>
+
+            <button type="submit" value="Submit" className="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+
+        <hr />
+
+        <img
+          className={this.state.images ? "yesImg" : "noImg"}
+          src={this.state.images}
+        />
+      </>
     );
   }
 }
