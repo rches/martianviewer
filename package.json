@@ -1,5 +1,5 @@
 {
-  "homepage": "https://rches.github.io/MartianViewer/",
+  "homepage": "https://rches.github.io/martianviewer",
   "name": "martianviewerv2",
   "version": "1.0.0",
   "description": "",
@@ -7,7 +7,6 @@
   "main": "src/index.js",
   "dependencies": {
     "axios": "0.19.0",
-    "gh-pages": "2.0.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1"
